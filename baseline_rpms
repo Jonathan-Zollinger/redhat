@@ -10,3 +10,4 @@ man
 ca-certificates
 vim-enhanced
 policycoreutils-python-utils.noarch
+ncurses

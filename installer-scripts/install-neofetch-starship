@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# installs neofetch on an rpm-based image. defaults to version 8 if /etc/os-release isn't found
+
+if command -v neofetch &> /dev/null; then
+  echo "neofetch installed. nothing to do."
+  exit
+fi
+
+if [[ -e /etc/os-release ]] && grep -q 'VERSION_ID=\S' /etc/os-release ; then
+  source /etc/os-release
+else
+  VERSION_ID="8"
+fi
+
+dnf install "https://dl.fedoraproject.org/pub/epel/epel-release-latest-${VERSION_ID:0:1}.noarch.rpm" -y
+dnf install neofetch -y
+
+
+dnf copr enable atim/starship
+
+echo neofetch >> ~/.bashrc

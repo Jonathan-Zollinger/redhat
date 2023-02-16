@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# installs glow from charm's yum repo. 
+# adds charm's yum repo if charm is not installed.
+echo -e "\e[33m\tInstalling glow...\e[0m"
+
+if command -v glow &> /dev/null; then
+	echo "glow is already installed. nothing to do."
+	exit
+fi
+
+if [[ -e '/etc/yum.repos.d/' ]]; then
+	echo -e "\e[32m the /etc/yum.repos.d directory doesn't exist. is this an rpm-based image?\e[0m\nexiting"
+	exit
+fi
+if [[ ! -e '/etc/yum.repos.d/charm.repo'  ]]; then
+	echo -e "\e[40mAdding the charm yum repo in /etc/yum.repos.d/charm.repo"
+	echo -e "[charm]\nname=Charm\nbaseurl=https://repo.charm.sh/yum/\nenabled=1\ngpgcheck=1\ngpgkey=https://repo.charm.sh/yum/gpg.key" > /etc/yum.repos.d/charm.repo
+fi
+
+yum install glow -y
+
+if command -v glow &> /dev/null; then
+	echo 'glow is installed!'
+else
+	echo -e "\e[31mglow failed to install. that's all I know\e[0m"
+fi
+
+my_aliases=""
+
+if [[ -e ~/.bashrc ]]; then
+	sed -i '/# User specific aliases and functions/a'
+fi

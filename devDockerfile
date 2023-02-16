@@ -1,5 +1,0 @@
-FROM ubuntu:latest
-RUN sudo apt-get install docker
-WORKDIR /root
-COPY . .
-CMD ["/bin/bash"] 
