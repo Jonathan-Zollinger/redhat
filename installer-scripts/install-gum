@@ -8,12 +8,12 @@ if command -v gum &> /dev/null; then
 	exit
 fi
 
-if [[ -e '/etc/yum.repos.d/' ]]; then
-	echo -e "\e[32m the /etc/yum.repos.d directory doesn't exist. is this an rpm-based image?\e[0m\nexiting"
+if [[ ! -e '/etc/yum.repos.d/' ]]; then
+	echo -e "\e[31m the /etc/yum.repos.d directory doesn't exist. is this an rpm-based image?\e[0m\nexiting"
 	exit
 fi
 if [[ ! -e '/etc/yum.repos.d/charm.repo'  ]]; then
-	echo -e "\e[40mAdding the charm yum repo in /etc/yum.repos.d/charm.repo"
+	echo -e "\e[90mAdding the charm yum repo in /etc/yum.repos.d/charm.repo...\e[0m"
 	echo -e "[charm]\nname=Charm\nbaseurl=https://repo.charm.sh/yum/\nenabled=1\ngpgcheck=1\ngpgkey=https://repo.charm.sh/yum/gpg.key" > /etc/yum.repos.d/charm.repo
 fi
 
@@ -25,8 +25,6 @@ else
 	echo "gum failed to install. that's all I know"
 fi
 
-my_aliases=""
-
-if [[ -e ~/.bashrc ]]; then
-	sed -i '/# User specific aliases and functions/a'
-fi
+# if [[ -e ~/.bashrc ]]; then
+# 	sed -i '/# User specific aliases and functions/a'
+# fi
