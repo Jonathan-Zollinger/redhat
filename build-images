@@ -2,13 +2,3 @@
 #
 # build images with dynamic dockerfile produced from this script
 
-function add-alias-flock () {
-  local -A alias_flock
-  alias_flock['ls']='ls --color'
-  alias_flock['ll']='ls -la'
-  alias_flock['less']='gum pager <'
-  
-  for alias in "${!alias_flock[@]}"; do
-    echo "set-alias $alias='${alias_flock[$alias]}'" | tee -a /etc/bashrc
-  done
-}
