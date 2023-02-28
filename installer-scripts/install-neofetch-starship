@@ -3,8 +3,11 @@
 # installs neofetch on an rpm-based image. defaults to version 8 if /etc/os-release isn't found
 
 if command -v neofetch &> /dev/null; then
-  echo "neofetch installed. nothing to do."
-  exit
+  echo "neofetch installed."
+  if command -v starship &> /dev/null; then
+    echo "starship also installed. nothing to do."
+    exit
+  fi
 fi
 
 if [[ -e /etc/os-release ]] && grep -q 'VERSION_ID=\S' /etc/os-release ; then
@@ -19,7 +22,10 @@ dnf install neofetch -y
 
 dnf copr enable atim/starship -y
 
-#TODO install ascii/terminal.ans to ~/ascii/ directory
+yum install starship -y
 
-echo 'neofetch --source ascii/terminal.ans --gap -15' >> ~/.bashrc
+#TODO install ascii/terminal.ans to ~/ascii/ directory
+cp ../ascii/ ~/Documents/
+
+echo 'neofetch --source ~/Documents/ascii/terminal.ans --gap -15' >> ~/.bashrc
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
