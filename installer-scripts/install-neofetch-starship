@@ -17,6 +17,9 @@ dnf install "https://dl.fedoraproject.org/pub/epel/epel-release-latest-${VERSION
 dnf install neofetch -y
 
 
-dnf copr enable atim/starship
+dnf copr enable atim/starship -y
 
-echo neofetch >> ~/.bashrc
+#TODO install ascii/terminal.ans to ~/ascii/ directory
+
+echo 'neofetch --source ascii/terminal.ans --gap -15' >> ~/.bashrc
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
