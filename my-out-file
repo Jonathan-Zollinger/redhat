@@ -1,0 +1,184 @@
+# Wed Feb 15 15:57:41 MST 2023
+# Replay feature output
+# ---------------------
+# This file was built by the Replay feature of InstallAnywhere.
+# It contains variables that were set by Panels, Consoles or Custom Code.
+
+
+
+#Choose Install Set
+#------------------
+CHOSEN_FEATURE_LIST=Govern
+CHOSEN_INSTALL_FEATURE_LIST=Govern
+CHOSEN_INSTALL_SET=Custom
+
+#Select install location
+#-----------------------
+USER_MAGIC_FOLDER_5=/opt/netiq/idm/apps/idgov
+
+#Tomcat installation
+#-------------------
+install_tomcat_home=/opt/netiq/idm/apps/tomcat
+install_tomcat_runtime_host=iglab.jonathan.rocks
+install_tomcat_runtime_port=8080
+install_tomcat_runtime_id=iglab
+
+#Tomcat Java home
+#----------------
+install_java_home=/opt/netiq/idm/apps/jre
+
+#Trust store details
+#-------------------
+install_truststore_secret=
+
+#Authentication provider
+#-----------------------
+install_authserver_type_nam=0
+install_authserver_type_osp=1
+
+#Application address
+#-------------------
+install_servlet_protocol_http=1
+install_servlet_protocol_https=0
+install_servlet_hostname=iglab.jonathan.rocks
+install_servlet_port=8080
+install_authserver_external=0
+install_authserver_protocol_http=$install_servlet_protocol_http$
+install_authserver_protocol_https=$install_servlet_protocol_https$
+install_authserver_hostname=iglab.jonathan.rocks
+install_authserver_port=$install_servlet_port$
+
+#Authentication details
+#----------------------
+install_authserver_client_secret=
+
+#Bootstrap administrator details
+#-------------------------------
+install_authserver_authsrc_file=1
+install_bootstrap_value_file=igadmin
+install_authserver_authsrc_ldap=0
+install_bootstrap_value_ldap=cn=
+install_hosted_saas_selection=0
+install_bootstrap_saas_name=saasopsadmin
+install_bootstrap_saas_source_same=1
+install_bootstrap_saas_source_custom=0
+install_bootstrap_saas_source=$install_bootstrap_source$
+install_analytics_bootstrap_selection=0
+install_bootstrap_analytics_name=analyticsadmin
+install_bootstrap_analytics_src_same=1
+install_bootstrap_analytics_src_custom=0
+install_bootstrap_analytics_source=$install_bootstrap_source$
+
+#ActiveMQ details
+#----------------
+install_notification_activemq_use=0
+install_notification_activemq_not_use=1
+
+#Database type
+#-------------
+install_db_type_microsoft=0
+install_db_type_oracle=0
+install_db_type_postgres=1
+
+#Database details
+#----------------
+install_db_configure_during=1
+install_db_configure_after=0
+install_db_configure_no=0
+install_db_host=iglab.jonathan.rocks
+install_db_port=5432
+install_db_admin_user_id=postgres
+install_db_admin_secret=
+install_db_test_connect_yes=1
+install_db_name_ops=igops
+install_db_name_arc=igarc
+install_db_name_dcs=igdcs
+install_db_name_wf=igwf
+install_db_name_ara=igara
+install_db_secret=
+install_db_rpt_user_id=igrptuser
+install_db_rpt_secret=
+install_db_create_yes=1
+install_db_create_no=0
+
+#Identity audit
+#--------------
+install_audit_events_use_yes=0
+install_audit_events_host=localhost
+install_audit_events_port=6514
+USER_MAGIC_FOLDER_8=/opt/netiq/idm/apps/audit
+install_audit_events_secure_yes=1
+install_audit_certs_test_yes=1
+
+#Install
+#-------
+-fileOverwrite_/opt/netiq/idm/apps/idgov/Uninstall_IdentityGovernance/Uninstall_IdentityGovernance.lax=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/conf/logging.properties=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/conf/placeholder_cert.pem=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/ig-configutil.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/ig-dbtool.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/liquibase-core.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/obscurity-uber.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/persist-jdbc.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/persistutil.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/postgresql-42.3.1.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/all-import-configs.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/cmn-configs.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-3/cmn-configs.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-3/cmn-secrets.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-7/cmn-configs.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/3rdPartyLicenseAttributions.txt=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/AdditionalLicenseAuthorizations.pdf=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/NetIQCopyright.txt=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/webapps/api.war=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/webapps/apidoc.war=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/webapps/cx.war=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/webapps/daas.war=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/webapps/dtp.war=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/webapps/formbuilder.war=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/webapps/ROOT.war=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/webapps/workflow-api.war=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/conf/cx-client-logging.xml=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/conf/daas-logging.xml=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/conf/ig-client-logging.xml=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/conf/ig-dtp-logging.xml=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/conf/ig-server-logging.xml=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/conf/ig-wf-logging.xml=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/conf/internal.properties=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/conf/logging.properties=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/conf/log4j.properties=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/lib/idm-datasource-factory-uber.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/lib/postgresql-42.3.1.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/lib/vertica-jdbc.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/lib/commons-logging.properties=Yes
+-fileOverwrite_/opt/netiq/idm/apps/tomcat/lib/logging.properties=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/bin/bootstrap-file-gen.sh=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/bin/db-init.sh=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/bin/configutil.sh=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/bin/encode-password.sh=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/bin/ig-certtool.sh=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/bin/rtc-migration.sh=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/bin/transform-tester.sh=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/conf/build-info.json=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/ig-certtool.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/ig-import-export-utility.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/ig-migration.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/ig-pwtool.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/persistence.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/lib/transform-tester.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/localization/client-strings.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/localization/cx-client-strings.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/localization/iac-common-server-lib-strings.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/localization/iac-common-lib-strings.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/localization/iac-configutil-strings.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/localization/iac-pwtool-strings.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/localization/persistence-strings.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/localization/server-strings.jar=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/gov-configs.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-7/gov-configs.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-7/gov-secrets.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-6/gov-configs.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-5/gov-configs.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-5/gov-secrets.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-3/gov-configs.script=Yes
+-fileOverwrite_/opt/netiq/idm/apps/idgov/scripts/configs-3-6-3/gov-secrets.script=Yes
