@@ -1,0 +1,21 @@
+# gum aliases
+
+# whale theme
+Back="#1a1e2a"
+Front="#ffffff"
+Dark1="#242D42"
+Dark2="#212739"
+Blue="#5eadfc"
+Grey="#6a6f87"
+Pink="#fa5ead"
+Green="#00fbad"
+
+# gum-filter colors
+export GUM_FILTER_INDICATOR_FOREGROUND=$Green
+export GUM_FILTER_SELECTED_PREFIX_FOREGROUND=$Dark1
+export GUM_FILTER_UNSELECTED_PREFIX_FOREGROUND=$Grey
+export GUM_FILTER_TEXT_FOREGROUND=$Front
+export GUM_FILTER_MATCH_FOREGROUND=$Blue
+export GUM_FILTER_PROMPT_FOREGROUND=$Blue
+
+

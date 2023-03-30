@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# build images with dynamic dockerfile produced from this script
+
+# build Dockerfile for yum-based images with the pattern of :
+# --- [ enable || install || add ] yum & dnf repos
+#   + follow with epel, fedora & flatpak
+# perform update THEN install repos
+#
+# perform manual installs & configurations 
+# Install manual installs / downloads 
