@@ -1,0 +1,6 @@
+alias vi='nvim'
+alias vim='vi'
+
+git config --global core.editor nvim
+
+
