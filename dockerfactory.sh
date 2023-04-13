@@ -8,7 +8,7 @@ err() {
 }
 
 function populate-dockerfactory() {
-  dir=$1
-  if ! [[ -d $dir ]]; then
-    err "malformed request, ${dir} is not a directory"
+  if ! [[ -d $1 ]]; then
+    err "malformed request, ${1} is not a directory"
+  fi
 }
