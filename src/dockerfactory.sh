@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # build and execute dockerfile
 
 # source: https://google.github.io/styleguide/shellguide.html#stdout-vs-stderr
 err() {
   echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*" >&2
+  false
 }
 
 function populate-dockerfactory() {
