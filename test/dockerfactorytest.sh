@@ -13,9 +13,9 @@ setup() {
   dockerfactory.sh
 }
 
-@test "fails with bad input" { 
+@test "fails with bad input, prints red" { 
   source dockerfactory.sh
   run populate-dockerfactory 'fake file'
   [ "$status" -eq 1 ]
+  [ $'\033[0m\033[32;1m' ] 
 }
-
