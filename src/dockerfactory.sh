@@ -5,10 +5,10 @@
 # source: https://google.github.io/styleguide/shellguide.html#stdout-vs-stderr
 
 #######################################
-# prints error message with timestampt to stderr 
+# prints error message with timestamp to stderr
 #
 # Globals:
-#   None 
+#   None
 # Arguments:
 #   Error message string.
 # Outputs:
@@ -23,32 +23,72 @@ err() {
   return 1
 }
 
-
+# each directory includes enable and install variables for yum and dnf package managers. 
+# ie yum-install's content could be 'unzip\ngit\nwget'
+# any additions to the bash profile are bashrc-<comment> and bashrc-aliases.
+# custom scripts are in the RUN file. 
+# additional yum repos are included as .repo files, which are copied from host to container unless named run.repos
+# dockerfiles are constructed with all utilities in parallel with the following sequence:
+# - repos are copied, installed or enabled.
+# - all package manager installs
+# - populate assets
+# - all custom run scripts
+# - add bashrc aliases
+# - add bashrc configurations
 
 function populate_dockerfactory() {
   if ! [[ -d $1 ]]; then
-    err "Malformed request:\nExpected a directory arg by for populate-dockerfactory(), got '${1}'."
+    err "Malformed request:\nExpected a directory arg for populate-dockerfactory(), got '${1}'."
+    return
+  fi
+}
+
+function populate_utility_in_dockerfile() {
+  if [[ $# -ne 1 ]]; then
+    err "expected 1 argument, received $#"
+    return
+  fi
+  # backup existing dockerfile
+  if [[ -d $1 ]]; then
+    err "expected a directory arg for add_utility, received ${1}"
     return
   fi
 
-  cd $1
-  dirs=$(ls -d */)
-  files=$(ls -p | grep -v /)
-  cd -
-  declare -A docker_componenets
-
-  for file in $files; do
-    docker_components["${file}"]=$(get_file_content "${file}")
-  done
+  if [[ -e dockerfile ]]; then
+    mv dockerfile dockerfile_backup_"$(date + '%Y_%m_%d_%H-%M')"
+  fi
+  echo -e "\n# add, enable or copy repos\n\n# yum installs\n\n# bash install\n\n# custom scripts\n\n# install lsp's\n\n# assets \n\n# bash aliases\n\n#bash configuration" >> dockerfile
+  
+  populate_utility_repos "$1"
+  populate_utility_pmgr_installs "$1"
+  populate_utility_custom_scripts "$1"
+  populate_utility_assets "$1"
+  populate_utility_nvim_lsp "$1"
+  populate_utility_bash_aliases "$1"
+  populate_utility_bash_configuration "$1"
 }
 
+#TODO(Jonathan) add populate_utility_repos
+#TODO(Jonathan) add populate_utility_pmgr_installs
+#TODO(Jonathan) add populate_utility_custom_scripts
+#TODO(Jonathan) add populate_utility_assets
+#TODO(Jonathan) add populate_utility_nvim_lsp
+#TODO(Jonathan) add populate_utility_bash_aliases
+#TODO(Jonathan) add populate_utility_bash_configuration
+
 function get_file_content() {
-  if [[ $# -ne 1 ]]; then
-    err "expected 1 argument, received ${$#}"
-  fi
   if ! [[ -r $1 ]]; then
-    err "Cannot read '${1}'. Make sure you have proper permissions and that the file exists." 
+    err "Cannot read '${1}'. Make sure you have proper permissions and that the file exists."
+    return
   fi
-  return $(cat $1)
+  return "$(cat "$1")"
+}
+
+function get_files() {
+  if ! [[ -d $1 ]]; then
+    err "Malformed request:\nExpected a directory arg for populate-dockerfactory(), got '${1}'."
+    return
+  fi
+  
 }
 
