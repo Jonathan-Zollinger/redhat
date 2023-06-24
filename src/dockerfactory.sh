@@ -68,7 +68,24 @@ function populate_utility_in_dockerfile() {
   populate_utility_bash_configuration "$1"
 }
 
-#TODO(Jonathan) add populate_utility_repos
+
+function populate_utility_repos() {
+   if [[ $# -ne 1 ]]; then
+    err "expected 1 argument, received $#"
+    return
+  fi  
+  directory="$1"
+  subdirectoryNames=()
+  if [ -d "$directory" ]; then
+    subdirectories=$(find ./ -maxdepth 1 -type d)
+    for i in $subdirectories; do
+      subdirectoryNames+=(basename "$i")
+    done
+  fi
+  return "$subdirectories" 
+
+}
+
 #TODO(Jonathan) add populate_utility_pmgr_installs
 #TODO(Jonathan) add populate_utility_custom_scripts
 #TODO(Jonathan) add populate_utility_assets
